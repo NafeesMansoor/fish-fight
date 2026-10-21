@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>NibbleNaut</title>
     <!--
-      Fish Fight is now NibbleNaut, served from github.com/NafeesMansoor/NibbleNaut at
-      https://nafeesmansoor.github.io/NibbleNaut/. This stand-in keeps the old address working.
+      Fish Fight is now NibbleNaut (github.com/NafeesMansoor/NibbleNaut), at home at
+      https://nabeeha.mansoor.info. This stand-in keeps the old address working.
       In a browser it forwards at once (same site, so progress carries over). Opened from an old
       home-screen icon, forwarding would leave the app's scope and iOS would show a browser bar,
       so it explains how to re-add the icon and shows the player's progress code to carry over.
     -->
-    <link rel="canonical" href="https://nafeesmansoor.github.io/NibbleNaut/" />
+    <link rel="canonical" href="https://nabeeha.mansoor.info/" />
     <script>
       (function () {
-        var GAME = 'https://nafeesmansoor.github.io/NibbleNaut/';
+        var GAME = 'https://nabeeha.mansoor.info/';
+        // Progress saved at this address (same site as before) travels along in the link's
+        // fragment; the game imports it at its new home.
+        var saved = null;
+        try { saved = localStorage.getItem('fishfight.save'); } catch (e) {}
+        var dest = saved ? GAME + '#progress=' + encodeURIComponent('NIBBLENAUT1:' + btoa(encodeURIComponent(saved))) : GAME + location.search + location.hash;
         var standalone =
           window.navigator.standalone === true ||
           (window.matchMedia && (matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: fullscreen)').matches));
-        if (!standalone) location.replace(GAME + location.search + location.hash);
+        if (!standalone) location.replace(dest);
         else document.documentElement.className = 'standalone';
       })();
     </script>
@@ -48,14 +53,14 @@
     </style>
   </head>
   <body>
-    <p class="forwarding">Opening <a href="https://nafeesmansoor.github.io/NibbleNaut/">NibbleNaut</a>…</p>
+    <p class="forwarding">Opening <a href="https://nabeeha.mansoor.info/">NibbleNaut</a>…</p>
     <div class="card">
-      <img src="https://nafeesmansoor.github.io/NibbleNaut/mascot.svg" alt="" />
+      <img src="https://nabeeha.mansoor.info/mascot.svg" alt="" />
       <h1>Nibble<span>Naut</span></h1>
       <p>NibbleNaut has a new home. To play full screen again:</p>
       <ol>
         <li>Copy your progress code below.</li>
-        <li>Open <a href="https://nafeesmansoor.github.io/NibbleNaut/">nafeesmansoor.github.io/NibbleNaut</a> in Safari, tap <b>Share → Add to Home Screen</b>.</li>
+        <li>Open <a href="https://nabeeha.mansoor.info/">nabeeha.mansoor.info</a> in Safari, tap <b>Share → Add to Home Screen</b>.</li>
         <li>In the new icon: <b>Settings → Paste progress code</b>. Then delete this old icon.</li>
       </ol>
       <div class="code" id="code">
@@ -65,7 +70,7 @@
       <div class="bn" lang="bn">
         নিবলনটের নতুন ঠিকানা হয়েছে। নিচের অগ্রগতির কোডটা কপি করো, Safari-তে ওপরের লিংকটা খুলে <b>Share → Add to Home Screen</b> চাপো, তারপর নতুন আইকনে <b>সেটিংস → অগ্রগতির কোড বসাও</b>। শেষে এই পুরোনো আইকনটা মুছে দাও।
       </div>
-      <a class="btn" href="https://nafeesmansoor.github.io/NibbleNaut/">Play now / এখনই খেলো</a>
+      <a class="btn" href="https://nabeeha.mansoor.info/">Play now / এখনই খেলো</a>
     </div>
     <script>
       (function () {
